@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script>
+    const root = document.getElementById("root");
+
+    
+    let obj = {
+      personal: {
+        name: "John",
+        age: 22,
+        gender: "Male",
+        religion: "None",
+      },
+      education: ["B. Tech", "M. Tech"],
+      geological: {
+        place: "NY",
+        county: "NJ",
+        country: "USA",
+        nationality: "American",
+        citizenship: "US",
+      },
+      hobbies: {
+        reading: true,
+        gaming: false,
+        sport: "football",
+      },
+      class: ["JavaScript", "HTML", "CSS"],
+      friends: {},
+      bio:'manish'
+    };
+
+    const main_arr = Object.keys(obj);
+
+    Object.keys(obj).forEach((hd) => {
+      const value = obj[hd];
+      if (!!value && !!Object.keys(value).length) {
+        const details = document.createElement("div");
+        details.id = hd;
+        const heading = document.createElement("h2");
+        heading.textContent = hd;
+        details.append(heading);
+        root.append(details);
+      }
+    });
+
+    main_arr.forEach((hd) => {
+      const value = obj[hd];
+      const parent_ele = document.getElementById(hd);
+      if (!!value && !!Object.keys(value).length) {
+        if (Array.isArray(value)) {
+          const ul = document.createElement("ul");
+          value.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = item;
+            ul.append(li);
+          });
+
+          parent_ele.append(ul);
+        } 
+        else if (typeof value === "object") {
+        
+          Object.keys(value).forEach((key) => {
+            const objdiv = document.createElement("div");
+            objdiv.id = key
+            const label = document.createElement("label");
+            label.innerText = key + ":";
+            const subvalue = document.createElement("span");
+            subvalue.innerText =!! value[key]? value[key] : '-';
+            objdiv.append(label, subvalue);
+            parent_ele.appendChild(objdiv);
+          });
+        } else{
+            const otherp=document.createElement('p');
+            otherp.textContent=value
+            
+            parent_ele.appendChild(otherp);
+        }
+      }
+    });
+  </script>
+</html>

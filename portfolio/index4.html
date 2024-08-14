@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <div id="root">
+
+ </div>   
+</body>
+<script>
+    const root=document.getElementById("root");
+
+
+  let obj = {
+  personalInfo: {
+    name: "Alex Taylor",
+    email: "alex.taylor@example.com",
+    phone: "+1-555-678-1234",
+    website: "https://www.alextaylor.com"
+  },
+  summary: "Experienced marketing professional specializing in digital strategy and brand management.",
+  skills: ["Digital Marketing", "SEO", "Content Creation", "Social Media"],
+  experience: 
+    
+    {
+      title: "Marketing Coordinator",
+      company: "Creative Solutions Inc.",
+      duration: "2017-2020"
+    },
+  
+  education: 
+    {
+      degree: "Bachelor of Business Administration",
+      institution: "University of Toronto",
+      year: 2015
+    }
+  ,
+  certifications: ["Google Analytics Certified", "HubSpot Content Marketing"]
+};
+
+const main_arr=Object.keys(obj);
+
+main_arr.forEach((hd)=>{
+    const value=obj[hd];
+    if (!!value && !!Object.keys(value).length){
+        const details=document.createElement('div');
+        details.id=hd;
+        const heading=document.createElement('h2');
+        heading.textContent=hd;
+        details.append(heading);
+        root.append(details);
+
+    }
+})
+main_arr.forEach(hd=>{
+    
+})
+
+</script>
+</html>

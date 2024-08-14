@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main_container">
+        <h1>portfolio page</h1>
+        <div id="first_container">
+<h2>Personal Details</h2>
+<hr>
+<p>Name:- <span id="name"></span></p>
+<p>Age:- <span id="age"></span></p>
+<p>Place:- <span id="place"></span></p>
+<p>County:- <span id="county"></span></p>
+<p>Country:- <span id="country"></span></p>
+<p>Gender:- <span id="gender"></span></p>
+        </div>
+        <div id="hobby">
+            <h2>Hobbies</h2>
+            <hr>
+            <p>Reading:- <span id="reading"></span></p>
+            <p>Gaming:- <span id="gaming"></span></p>
+            <p>Sport:- <span id="sport"></span></p>
+        </div>
+        <div id="class">
+            <h2>Class</h2>
+            <hr>
+            <p>HTML:- <span id="html"></span></p>
+            <p>CSS:- <span id="css"></span></p>
+            <p>JavaScript:- <span id="javascript"></span></p>
+        </div>
+    </div>
+</body>
+<script>
+    let obj = {
+      personal: {
+        name: "John",
+        age: 22,
+        gender: "",
+        religion: "",
+      },
+      education: ["B. Tech, M. Tech"],
+      geological: {
+        place: "NY",
+        county: "NJ",
+        country: "USA",
+        nationality: "",
+        citizenship: null,
+      },
+      hobbies: {
+        reading: true,
+        gaming: false,
+        sport: "football",
+      },
+      class: ["JavaScript", "HTML", "CSS"],
+      friends:{}
+    };
+    Object.keys(obj).forEach(ele=>{
+    const value=obj[ele];
+if(!!value){
+    if(Array.isArray(value)){
+        value.forEach(el=>console.log(el))
+    }else if (typeof value==="object"){
+        Object.keys(value).forEach(r=>console.log(value[r]))
+        
+        }
+        else{
+            console.log(value);
+            
+        }
+}
+}
+)
+
+</script>
+</html>

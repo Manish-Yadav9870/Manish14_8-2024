@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main_container">
+        <!-- <h1>Portfolio Page</h1> -->
+        <!-- <div id="first_container">
+            <h2>Personal Details</h2>
+            <hr>
+            <p>Name: <span id="name"></span></p>
+            <p>Age: <span id="age"></span></p>
+            <p>Place: <span id="place"></span></p>
+            <p>County: <span id="county"></span></p>
+            <p>Country: <span id="country"></span></p>
+            <p>Gender: <span id="gender"></span></p>
+        </div>
+        <div id="hobby">
+            <h2>Hobbies</h2>
+            <hr>
+            <p>Reading: <span id="reading"></span></p>
+            <p>Gaming: <span id="gaming"></span></p>
+            <p>Sport: <span id="sport"></span></p>
+        </div>
+        <div id="class">
+            <h2>Class</h2>
+            <hr>
+            <p>HTML: <span id="html"></span></p>
+            <p>CSS: <span id="css"></span></p>
+            <p>JavaScript: <span id="javascript"></span></p>
+        </div> -->
+    </div>
+
+    <script>
+        let main=document.getElementById("main_container");
+        let h1=document.createElement("h1");
+        h1.innerHTML="Portfolio Page";
+        let first=document.createElement("div");
+        first.id="first_container";
+        let h2=document.createElement("h2");
+        h2.innerHTML="Personal Details";
+        let hr=document.createElement("hr");
+        let p1=document.createElement("p");
+        p1.innerHTML="Name";
+        let span1=document.createElement("span");
+        span1.id="name";
+        let p2=document.createElement("p");
+        p2.innerHTML="Age";
+        let span2=document.createElement("span");
+        span2.id="age";
+        let p3=document.createElement("p");
+        p3.innerHTML="Place";
+        let span3=document.createElement("span");
+        span3.id="place";
+        let p4=document.createElement("p");
+        p4.innerHTML="County";
+        let span4=document.createElement("span");
+        span4.id="county";
+        let p5=document.createElement("p");
+        p5.innerHTML="Country";
+        let span5=document.createElement("span");
+        span5.id="country";
+        let p6=document.createElement("p");
+        p6.innerHTML="Gender";
+        let span6=document.createElement("span");
+        span6.id="gender";
+        p1.append(span1);
+        p2.append(span2);
+        p3.append(span3);
+        p4.append(span4);
+        p5.append(span5);
+        p6.append(span6);
+        first.append(h2,hr,p1,p2,p3,p4,p5,p6);
+       
+        let second=document.createElement("div");
+        second.id="hobby";
+        let h22=document.createElement("h2");
+        h22.innerHTML="Hobbies";
+        let hr1=document.createElement("hr");
+        let p7=document.createElement("p");
+        p7.innerHTML="Reading";
+        let span7=document.createElement("span");
+        span7.id="reading";
+        let p8=document.createElement("p");
+        p8.innerHTML="Gaming";
+        let span8=document.createElement("span");
+        span8.id="gaming";
+        let p9=document.createElement("p");
+        p9.innerHTML="Sport";
+        let span9=document.createElement("span");
+        span9.id="sport";
+        p7.append(span7);
+        p8.append(span8);
+        p9.append(span9);
+        second.append(h22,hr1,p7,p8,p9);
+
+
+        main.append(h1,first,second);
+        
+
+
+
+        let obj = {
+            personal: {
+                name: "John",
+                age: 22,
+                gender: "Male",
+                religion: "None",
+            },
+            education: ["B. Tech", "M. Tech"],
+            geological: {
+                place: "NY",
+                county: "NJ",
+                country: "USA",
+                nationality: "American",
+                citizenship: "US",
+            },
+            hobbies: {
+                reading: true,
+                gaming: false,
+                sport: "football",
+            },
+            class: ["JavaScript", "HTML", "CSS"],
+            friends: {}
+        };
+
+
+        function populateData() {
+            Object.keys(obj).forEach(ele => {
+                const value = obj[ele];
+                
+                if (!!value) {
+                    if (Array.isArray(value)) {
+                        value.forEach(el => {
+                            console.log(el);  
+                            
+                        });
+                    } else if (typeof value === "object") {
+                        Object.keys(value).forEach(r => {
+                            const span = document.getElementById(r);
+                            if (span) {
+                                span.innerText = value[r];
+                            }
+                        });
+                    } else {
+                        
+                        const span = document.getElementById(ele);
+                        if (span) {
+                            span.innerText = value;
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onload = populateData;
+    </script>
+</body>
+</html>
